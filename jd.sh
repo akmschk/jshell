@@ -103,37 +103,22 @@ function Combin_Sub() {
   echo ${CombinAll} | perl -pe "{s|^&||; s|^@+||; s|&@|&|g; s|@+&|&|g; s|@+|@|g; s|@+$||}"
 }
 
-## 组合Cookie、Token与互助码
-function Combin_All() {
+## 组合 Cookie、Token 与互助码
+function Combin_All {
   export JD_COOKIE=$(Combin_Sub Cookie)
-  ## 东东农场(jd_fruit.js)
-  export FRUITSHARECODES=$(Combin_Sub ForOtherFruit "588e4dd7ba134ad5aa255d9b9e1a38e3@520b92a9f0c34b34a0833f6c3bb41cac@e124f1c465554bf485983257743233d3" "7363f89a9d7248ae91a439794f854614@07b3cd1495524fa2b0f768e7639eab9f")
-  ## 东东萌宠(jd_pet.js)
-  export PETSHARECODES=$(Combin_Sub ForOtherPet "MTE1NDAxNzgwMDAwMDAwMzk3NDIzODc=@MTAxODEyMjkyMDAwMDAwMDQwMTEzNzA3@MTE1NDUyMjEwMDAwMDAwNDM3NDQzMzU=" "MTEzMzI0OTE0NTAwMDAwMDA0Mzc0NjgzOQ==")
-  ## 种豆得豆(jd_plantBean.js)
-  export PLANT_BEAN_SHARECODES=$(Combin_Sub ForOtherBean "olmijoxgmjutzeajdig5vec453deq25pz7msb7i@okj5ibnh3onz6mkpbt6natnj7xdxeqeg53kjbsi@7oivz2mjbmnx4cbdwoeomdbqrr6bwbgsrhybhxa" "yvppbgio53ya5quolmjz6hiwlhu6yge7i7six5y@ebxm5lgxoknqdfx75eycfx6vy5n2tuflqhuhfia")
-  ## 东东工厂(jd_jdfactory.js)
-  export DDFACTORY_SHARECODES=$(Combin_Sub ForOtherJdFactory "T0225KkcRhwZp1HXJk70k_8CfQCjVWnYaS5kRrbA@T0205KkcAVhorA6EfG6dwb9ACjVWnYaS5kRrbA@T0205KkcG1tgqh22f1-s54tXCjVWnYaS5kRrbA" "T019__l2QBYe_UneIRj9lv8CjVWnYaS5kRrbA@T0205KkcNFd5nz6dXnCV4r9gCjVWnYaS5kRrbA")
-  ## 京喜工厂(jd_dreamFactory.js)
-  export DREAM_FACTORY_SHARE_CODES=$(Combin_Sub ForOtherDreamFactory "piDVq-y7O_2SyEzi5ZxxYw==@IzYimRViEUHMiUDFhPPLOg==@ieXM8XzpopOaevcW0f1OwA==" "y0k9IDhCNqQvEov0x2ugNQ==")
-  ## 京东赚赚(jd_jdzz.js)
-  export JDZZ_SHARECODES=$(Combin_Sub ForOtherJdzz "S5KkcRhwZp1HXJk70k_8CfQ@S5KkcAVhorA6EfG6dwb9A@S5KkcG1tgqh22f1-s54tX")
-  ## 疯狂的Joy(jd_crazy_joy.js)
-  export JDJOY_SHARECODES=$(Combin_Sub ForOtherJoy "N1ihLmXRx9ahdnutDzc1Vqt9zd5YaBeE@o8k-j4vfLXWhsdA5HoPq-w==@zw2aNaUUBen1acOglloXVw==")
-  ## 口袋书店(jd_bookshop.js)
-  export BOOKSHOP_SHARECODES=$(Combin_Sub ForOtherBookShop)
-  ## 签到领现金(jd_cash.js)
-  export JD_CASH_SHARECODES=$(Combin_Sub ForOtherCash "eU9Yau6yNPkm9zrVzHsb3w@eU9YLarDP6Z1rRq8njtZ@eU9YN6nLObVHriuNuA9O")
-  ## 京喜农场(jd_jxnc.js)
+  export FRUITSHARECODES=$(Combin_Sub ForOtherFruit)
+  export PETSHARECODES=$(Combin_Sub ForOtherPet)
+  export PLANT_BEAN_SHARECODES=$(Combin_Sub ForOtherBean)
+  export DREAM_FACTORY_SHARE_CODES=$(Combin_Sub ForOtherDreamFactory)
+  export DDFACTORY_SHARECODES=$(Combin_Sub ForOtherJdFactory)
+  export JDZZ_SHARECODES=$(Combin_Sub ForOtherJdzz)
+  export JDJOY_SHARECODES=$(Combin_Sub ForOtherJoy)
   export JXNC_SHARECODES=$(Combin_Sub ForOtherJxnc)
-  ## 闪购盲盒(jd_sgmh.js)
+  export BOOKSHOP_SHARECODES=$(Combin_Sub ForOtherBookShop)
+  export JD_CASH_SHARECODES=$(Combin_Sub ForOtherCash)
   export JDSGMH_SHARECODES=$(Combin_Sub ForOtherSgmh)
-  ## 京喜财富岛(jd_cfd.js)
   export JDCFD_SHARECODES=$(Combin_Sub ForOtherCfd)
-  ## 环球挑战赛(jd_global.js)
-  export JDGLOBAL_SHARECODES=$(Combin_Sub ForOtherGlobal "MjNtTnVxbXJvMGlWTHc5Sm9kUXZ3VUM4R241aDFjblhybHhTWFYvQmZUOD0")
-  ## 京东手机狂欢城(jd_carnivalcity.js)
-  export JD818_SHARECODES=$(Combin_Sub ForOtherCarnivalcity "1a603321-b632-46ac-ba69-de1691e7df9c@5317c465-9671-4a4c-8d99-20ce19a0801e@f1739361-c8ab-4b0f-ab30-8ee3269b4519")
+  export JDGLOBAL_SHARECODES=$(Combin_Sub ForOtherGlobal)
 }
 
 ## 转换JD_BEAN_SIGN_STOP_NOTIFY或JD_BEAN_SIGN_NOTIFY_SIMPLE
