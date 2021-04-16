@@ -112,19 +112,8 @@ function Change_JoyRunPins {
     let j--
   done
   PinEvine="wadoro,120590266-99995819,jd_7d7946bf3af9f,wduEgIIFLrPdks,"
-  PinALL="${PinALL}${PinEvine}"
+  PinALL="${PinEvine}${PinALL}"
   perl -i -pe "{s|(let invite_pins = \[\")(.+\"\];?)|\1${PinALL}\2|; s|(let run_pins = \[\")(.+\"\];?)|\1${PinALL}\2|}" ${ScriptsDir}/jd_joy_run.js
-}
-
-## 修改lxk0301大佬js文件的函数汇总
-function Change_ALL {
-  if [ -f ${FileConf} ]; then
-    . ${FileConf}
-    if [ -n "${Cookie1}" ]; then
-      Count_UserSum
-      Change_JoyRunPins
-    fi
-  fi
 }
 
 ## 检测文件：远程仓库 jd_scripts 中的 docker/crontab_list.sh
