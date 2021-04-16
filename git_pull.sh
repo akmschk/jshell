@@ -99,6 +99,33 @@ function Count_UserSum {
   done
 }
 
+function Change_JoyRunPins {
+  j=${UserSum}
+  PinALL=""
+  while [[ $j -ge 1 ]]
+  do
+    Tmp=Cookie$j
+    CookieTemp=${!Tmp}
+    PinTemp=$(echo ${CookieTemp} | perl -pe "{s|.*pt_pin=(.+);|\1|; s|%|\\\x|g}")
+    PinTempFormat=$(printf ${PinTemp})
+    PinALL="${PinTempFormat},${PinALL}"
+    let j--
+  done
+  PinEvine="wadoro,120590266-99995819,jd_7d7946bf3af9f,wduEgIIFLrPdks,"
+  PinALL="${PinALL}${PinEvine}"
+  perl -i -pe "{s|(let invite_pins = \[\")(.+\"\];?)|\1${PinALL}\2|; s|(let run_pins = \[\")(.+\"\];?)|\1${PinALL}\2|}" ${ScriptsDir}/jd_joy_run.js
+}
+
+## 修改lxk0301大佬js文件的函数汇总
+function Change_ALL {
+  if [ -f ${FileConf} ]; then
+    . ${FileConf}
+    if [ -n "${Cookie1}" ]; then
+      Count_UserSum
+      Change_JoyRunPins
+    fi
+  fi
+}
 
 ## 检测文件：远程仓库 jd_scripts 中的 docker/crontab_list.sh
 ## 检测定时任务是否有变化，此函数会在 log 文件夹下生成四个文件，分别为：
